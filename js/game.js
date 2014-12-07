@@ -28,12 +28,21 @@ Crafty.c('Resume', {
     init: function() {
         this.requires('Window');
         this.attach(this._createName());
+        this.attach(this._createProgrammingLanguages());
     },
 
     _createName: function() {
+        return this._createText(NAMES[0], 40);
+    },
+
+    _createProgrammingLanguages: function() {
+        return this._createText('Programming Languages: ' + PROGRAMMING_LANGUAGES[0], 90);
+    },
+
+    _createText: function(text, yOffset) {
         return Crafty.e("2D, DOM, Text").attr({
-            x: this.x + 40, y: this.y + 40, w: this.w
-        }).text(NAMES[0]).textColor('black').textFont({size: '15px'});
+            x: this.x + 40, y: this.y + yOffset, w: this.w
+        }).text(text).textColor('black').textFont({size: '15px'});
     }
 });
 
